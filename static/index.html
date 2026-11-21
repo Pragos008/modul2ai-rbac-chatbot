@@ -443,10 +443,10 @@
       appendLoading();
 
       try {
+        const currentRole = (document.getElementById("userRoleSelect") || {}).value || "mahasiswa";
         const res = await fetch("/api/chat", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          const currentRole = (document.getElementById("userRoleSelect") || {}).value || "mahasiswa";
           body: JSON.stringify({ question, role: currentRole }),
         });
         const data = await res.json();
