@@ -1,0 +1,91 @@
+[
+  {
+    "id": "T1",
+    "desc": "Pertanyaan Umum TAK (Role: Mahasiswa)",
+    "role": "mahasiswa",
+    "query": "Berapa nilai minimal TAK untuk kelulusan jenjang Sarjana (S1)?",
+    "chunk_count": 5,
+    "sources": [
+      {
+        "document_id": 3,
+        "title": "SK-TAK-2022",
+        "filename": "default_SK-TAK-2022.pdf",
+        "url": "/uploads/default_SK-TAK-2022.pdf",
+        "score": 0.7913
+      },
+      {
+        "document_id": 2,
+        "title": "SK TAK TUNC 2025",
+        "filename": "default_SK_TAK_TUNC_2025.pdf",
+        "url": "/uploads/default_SK_TAK_TUNC_2025.pdf",
+        "score": 0.7716
+      }
+    ],
+    "answer": "Nilai kumulatif minimal TAK untuk kelulusan jenjang Sarjana (S1) adalah 60."
+  },
+  {
+    "id": "T2",
+    "desc": "Pertanyaan Dokumen Sensitif Dosen diajukan oleh Mahasiswa (Uji Penolakan/Isolasi RBAC)",
+    "role": "mahasiswa",
+    "query": "Berapa formula persentase bobot penilaian mata kuliah dan batas maksimal nilai remedial?",
+    "chunk_count": 5,
+    "sources": [
+      {
+        "document_id": 2,
+        "title": "SK TAK TUNC 2025",
+        "filename": "default_SK_TAK_TUNC_2025.pdf",
+        "url": "/uploads/default_SK_TAK_TUNC_2025.pdf",
+        "score": 0.6145
+      },
+      {
+        "document_id": 3,
+        "title": "SK-TAK-2022",
+        "filename": "default_SK-TAK-2022.pdf",
+        "url": "/uploads/default_SK-TAK-2022.pdf",
+        "score": 0.5829
+      }
+    ],
+    "answer": "Informasi mengenai formula persentase bobot penilaian mata kuliah dan batas maksimal nilai remedial tidak tersedia dalam referensi yang diberikan. Referensi tersebut hanya memuat ketentuan terkait nilai kumulatif minimal dan maksimal Transkrip Aktivitas Kemahasiswaan (TAK) serta rumus perhitungan Indeks Keaktifan Kumulatif (IKK), yaitu IKK = (Ni / Nm) × 4."
+  },
+  {
+    "id": "T3",
+    "desc": "Pertanyaan Dokumen Sensitif Dosen diajukan oleh Dosen (Uji Akses Resmi RBAC)",
+    "role": "dosen",
+    "query": "Berapa formula persentase bobot penilaian mata kuliah dan batas maksimal nilai remedial?",
+    "chunk_count": 3,
+    "sources": [
+      {
+        "document_id": 5,
+        "title": "Pedoman Penilaian dan Kebijakan Internal Dosen",
+        "filename": "dosen_Pedoman_Penilaian_dan_Kebijakan_Internal_Dosen.txt",
+        "url": "/uploads/dosen_Pedoman_Penilaian_dan_Kebijakan_Internal_Dosen.txt",
+        "score": 0.7446
+      }
+    ],
+    "answer": "Berikut adalah rincian formula persentase bobot penilaian dan batas maksimal nilai remedial:\n\n**Formula Bobot Penilaian Mata Kuliah:**\n*   Kehadiran & Partisipasi Kelas: 10%\n*   Tugas Mandiri & Praktikum Berkala: 20%\n*   Ujian Tengah Semester (UTS): 30%\n*   Ujian Akhir Semester (UAS) / Proyek Akhir: 40%\n\n**Batas Maksimal Nilai Remedial:**\nBatas maksimal nilai akhir pasca-remedial adalah **C** (skor 55.00). Dosen pengampu dilarang memberikan nilai di atas C untuk ujian perbaikan."
+  },
+  {
+    "id": "T4",
+    "desc": "Pertanyaan Layanan Operasional SSC (Role: Mahasiswa)",
+    "role": "mahasiswa",
+    "query": "Kapan jam operasional layanan Student Service Center (SSC)?",
+    "chunk_count": 5,
+    "sources": [
+      {
+        "document_id": 1,
+        "title": "Alur Menghubungi SSC",
+        "filename": "default_Alur_Menghubungi_SSC.txt",
+        "url": "/uploads/default_Alur_Menghubungi_SSC.txt",
+        "score": 0.6807
+      },
+      {
+        "document_id": 4,
+        "title": "SSC Operating Hours",
+        "filename": "default_SSC_Operating_Hours.txt",
+        "url": "/uploads/default_SSC_Operating_Hours.txt",
+        "score": 0.6417
+      }
+    ],
+    "answer": "Jam operasional Student Service Center (SSC) adalah hari Senin sampai Jumat, pukul 08.00 hingga 16.00 WIB. SSC tidak melayani pada hari Sabtu, Minggu, atau di luar jam operasional tersebut."
+  }
+]

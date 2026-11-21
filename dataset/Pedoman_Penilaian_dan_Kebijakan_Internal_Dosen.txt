@@ -1,0 +1,31 @@
+# PANDUAN DAN STANDAR OPERASIONAL PROSEDUR (SOP) PENILAIAN AKADEMIK DOSEN
+Fakultas Rekayasa Industri - Telkom University Surabaya
+Status Dokumen: RAHASIA - HANYA UNTUK INTERNAL DOSEN & PENGUJI (CONFIDENTIAL)
+Nomor Dokumen: SOP-DOSEN-FRI-2026-V2
+
+## 1. KEBIJAKAN BOBOT NILAI DAN EVALUASI AKADEMIK
+Setiap dosen pengampu mata kuliah di lingkungan program studi wajib menerapkan formula penilaian baku berikut:
+- Kehadiran & Partisipasi Kelas: 10% (minimal kehadiran mahasiswa untuk berhak mengikuti UAS adalah 75%)
+- Tugas Mandiri & Praktikum Berkala: 20%
+- Ujian Tengah Semester (UTS): 30%
+- Ujian Akhir Semester (UAS) / Proyek Akhir: 40%
+
+## 2. STANDAR GRADING SKALA NILAI MUTU (INTERNAL DOSEN)
+Ambang batas nilai akhir kelulusan mata kuliah ditetapkan sebagai berikut:
+- Nilai A (Istimewa): Skor >= 80.00 (Bobot Indeks 4.00)
+- Nilai AB (Sangat Baik): Skor 73.00 - 79.99 (Bobot Indeks 3.50)
+- Nilai B (Baik): Skor 65.00 - 72.99 (Bobot Indeks 3.00)
+- Nilai BC (Cukup Baik): Skor 60.00 - 64.99 (Bobot Indeks 2.50)
+- Nilai C (Cukup / Batas Lulus): Skor 50.00 - 59.99 (Bobot Indeks 2.00)
+- Nilai D (Kurang): Skor 40.00 - 49.99 (Bobot Indeks 1.00)
+- Nilai E (Gagal): Skor < 40.00 (Bobot Indeks 0.00)
+
+## 3. PROSEDUR REMEDIAL DAN PERBAIKAN NILAI RAHASIA
+- Mahasiswa yang memperoleh nilai akhir kategori D atau E berhak mengajukan ujian perbaikan/remedial dengan batas nilai maksimal pasca-remedial adalah C (skor 55.00).
+- Dosen pengampu dilarang memberikan nilai di atas C untuk ujian perbaikan semester pendek/remedial.
+- Segala bentuk komplain nilai mahasiswa wajib dilayani maksimal 3 hari kerja setelah pengumuman nilai di portal i-Gracias.
+
+## 4. PEDOMAN INTEGRITAS DAN SANKSI PLAGIARISME KODE / TUGAS
+- Jika terdeteksi kesamaan kode program (plagiarisme) di atas 40% antar mahasiswa:
+  a. Pelanggaran pertama: Nilai tugas kedua belah pihak langsung dibatalkan (diberi nilai 0).
+  b. Pelanggaran berulang: Mahasiswa dilaporkan ke Komite Disiplin Akademik Fakultas dengan sanksi pembatalan mata kuliah (Nilai E otomatis).

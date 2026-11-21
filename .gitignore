@@ -1,0 +1,16 @@
+# Environments & Secrets
+.env
+__pycache__/
+*.pyc
+
+# Database
+*.db
+*.sqlite3
+
+# Uploads directory contents
+uploads/*
+!uploads/.gitkeep
+
+# Output PDFs & temporary scripts
+*.pdf
+update_*.py
