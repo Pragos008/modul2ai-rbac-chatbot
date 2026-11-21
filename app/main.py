@@ -35,6 +35,41 @@ app.mount("/uploads", StaticFiles(directory=str(UPLOAD_DIR)), name="uploads")
 app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
 
 
+def enforce_rbac_document_roles() -> None:
+    """Memastikan dokumen internal dosen hanya dimiliki oleh role dosen dan tidak bocor ke mahasiswa."""
+    conn = get_connection()
+    cur = conn.cursor()
+
+    cur.execute("SELECT id FROM roles WHERE LOWER(name) = 'mahasiswa'")
+    mhs = cur.fetchone()
+    cur.execute("SELECT id FROM roles WHERE LOWER(name) = 'dosen'")
+    dsn = cur.fetchone()
+
+    if mhs and dsn:
+        mhs_id = mhs["id"]
+        dsn_id = dsn["id"]
+
+        # Temukan semua dokumen yang mengandung pedoman penilaian atau dosen
+        cur.execute("""
+            SELECT id FROM documents
+            WHERE LOWER(title) LIKE '%dosen%'
+               OR LOWER(title) LIKE '%penilaian%'
+               OR LOWER(filename) LIKE '%dosen%'
+               OR LOWER(filename) LIKE '%penilaian%'
+        """)
+        sensitive_docs = cur.fetchall()
+
+        for doc in sensitive_docs:
+            d_id = doc["id"]
+            # Hapus dari role mahasiswa
+            cur.execute("DELETE FROM document_roles WHERE document_id = ? AND role_id = ?", (d_id, mhs_id))
+            # Pastikan terdaftar di role dosen
+            cur.execute("INSERT OR IGNORE INTO document_roles (document_id, role_id) VALUES (?, ?)", (d_id, dsn_id))
+
+    conn.commit()
+    conn.close()
+
+
 def seed_default_documents() -> None:
     if not DATASET_DIR.exists():
         return
@@ -42,16 +77,19 @@ def seed_default_documents() -> None:
     conn = get_connection()
     cur = conn.cursor()
     cur.execute("SELECT COUNT(*) AS cnt FROM documents")
-    if cur.fetchone()["cnt"] > 0:
+    has_docs = cur.fetchone()["cnt"] > 0
+    if has_docs:
         conn.close()
+        enforce_rbac_document_roles()
         return
 
     cur.execute("SELECT id FROM roles WHERE LOWER(name) = 'mahasiswa'")
-    role_row = cur.fetchone()
-    if not role_row:
-        conn.close()
-        return
-    role_id = role_row["id"]
+    mhs_row = cur.fetchone()
+    cur.execute("SELECT id FROM roles WHERE LOWER(name) = 'dosen'")
+    dsn_row = cur.fetchone()
+
+    mhs_role_id = mhs_row["id"] if mhs_row else 1
+    dsn_role_id = dsn_row["id"] if dsn_row else (mhs_role_id + 1)
 
     for file_path in sorted(DATASET_DIR.iterdir()):
         if not file_path.is_file() or file_path.suffix.lower() not in {".txt", ".md", ".pdf", ".docx", ".csv", ".xlsx"}:
@@ -83,9 +121,12 @@ def seed_default_documents() -> None:
         )
         doc_id = cur.lastrowid
 
+        is_sensitive = any(k in file_path.name.lower() for k in ["dosen", "internal", "penilaian"])
+        assigned_role_id = dsn_role_id if is_sensitive else mhs_role_id
+
         cur.execute(
             "INSERT OR IGNORE INTO document_roles (document_id, role_id) VALUES (?, ?)",
-            (doc_id, role_id),
+            (doc_id, assigned_role_id),
         )
 
         for idx, ch in enumerate(chunks):
@@ -97,12 +138,14 @@ def seed_default_documents() -> None:
 
     conn.commit()
     conn.close()
+    enforce_rbac_document_roles()
 
 
 @app.on_event("startup")
 def on_startup():
     init_db()
     seed_default_documents()
+    enforce_rbac_document_roles()
 
 
 # ---------- Schemas ----------

@@ -99,6 +99,7 @@ def init_db() -> None:
 
     default_roles = [
         ("mahasiswa", "Akses informasi akademik & layanan SSC untuk mahasiswa"),
+        ("dosen", "Akses pedoman penilaian internal dan kebijakan dosen"),
     ]
     for role_name, desc in default_roles:
         cur.execute(
