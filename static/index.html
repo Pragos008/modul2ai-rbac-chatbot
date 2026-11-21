@@ -352,6 +352,10 @@
     };
 
     function appendUserMessage(text) {
+      // Hide welcome state on first message
+      const ws = document.getElementById("welcomeState");
+      if (ws) ws.remove();
+
       const wrapper = document.createElement("div");
       wrapper.className = "flex justify-end";
       wrapper.innerHTML = `
